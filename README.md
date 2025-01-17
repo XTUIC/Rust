@@ -1,4 +1,4 @@
-# XTUIC——Test
+# XTUIC
 
 [中文版本](https://github.com/XTUIC/Rust/blob/main/README.zh.md)
 
