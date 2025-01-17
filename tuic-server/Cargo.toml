@@ -1,0 +1,71 @@
+[package]
+name = "tuic-server"
+version.workspace = true
+authors.workspace = true
+description = "Minimalistic TUIC server implementation as a reference"
+categories = ["network-programming"]
+keywords = ["network", "proxy", "quic", "tuic"]
+edition.workspace = true
+rust-version.workspace = true
+readme.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[features]
+default = ["aws-lc-rs"]
+ring = ["rustls/ring", "rcgen/ring", "quinn/rustls-ring"]
+aws-lc-rs = ["rustls/aws-lc-rs", "rcgen/aws_lc_rs", "quinn/rustls-aws-lc-rs"]
+jemallocator = ["tikv-jemallocator"]
+
+[dependencies]
+
+lateinit = "0.2"
+toml = "0.8"
+lexopt = { version = "0.3", default-features = false }
+socket2 = { version = "0.5", default-features = false }
+arc-swap = "1"
+uuid = { version = "1", default-features = false, features = ["serde", "std", "v4"] }
+chashmap = { package = "chashmap-async", version = "0.1" }
+notify = "7"
+
+
+# QUIC
+quinn = { version = "0.11", default-features = false, features = ["runtime-tokio", "log"] }
+
+# TUIC
+tuic = { path = "../tuic", default-features = false }
+tuic-quinn = { path = "../tuic-quinn", default-features = false }
+register-count = { version = "0.1.0", default-features = false, features = ["std"] }
+
+# Tokio/Async
+tokio = { version = "1", default-features = false, features = ["io-util", "macros", "net", "parking_lot", "rt-multi-thread", "time", "fs", "signal"] }
+
+# TLS
+rustls = { version = "0.23", default-features = false }
+rustls-pemfile = { version = "2", default-features = false, features = ["std"]}
+rcgen = { version = "0.13", default-features = false, features = ["crypto"] }
+
+# Serde
+bytes = { version = "1", default-features = false, features = ["std"] }
+serde = { version = "1", default-features = false, features = ["derive", "std"] }
+serde_json = { version = "1", default-features = false, features = ["std"] }
+figment = { version = "0.10", features = ["toml"] }
+educe = { version = "0.6", default-features = false, features = ["Default"] }
+humantime-serde = "1"
+
+# Logging
+time = { version = "0.3", features = ["macros", "local-offset"] }
+humantime = { version = "2", default-features = false }
+tracing-subscriber = { version = "0.3", default-features = false, features = ["tracing-log", "std", "local-time","fmt"] }
+chrono = "0.4"
+tracing = "0.1"
+
+# Error handling
+thiserror = { version = "2", default-features = false }
+eyre = { version = "0.6" }
+
+# Web
+axum = { version = "0.8", features = ["json", "tokio"] }
+axum-extra = { version = "0.10", features = ["typed-header"] }
+
+tikv-jemallocator = { version = "0.6", optional = true }
