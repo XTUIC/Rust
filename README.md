@@ -1,5 +1,7 @@
 # XTUIC
 
+[中文版本](https://github.com/XTUIC/Rust/blob/main/README.zh.md)
+
 Delicately-XTUICed 0-RTT proxy protocol
 
 A fork of advanced TUIC repo https://github.com/itsusinn/tuic
