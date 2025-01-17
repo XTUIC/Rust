@@ -2034,7 +2034,7 @@ dependencies = [
 
 [[package]]
 name = "tuic"
-version = "1.4.3"
+version = "0.0.1"
 dependencies = [
  "bytes",
  "futures-util",
