@@ -33,7 +33,7 @@ When paired with QUIC, XTUIC can achieve:
     - Optional 0-RTT connection handshake
     - Connection migration
 
-Fully-detailed XTUIC protocol specification can be found in [SPEC.md](https://github.com/XTUIC/Rust/blob/main/SPEC_TUIC.en.md)
+Fully-detailed XTUIC protocol specification can be found in [SPEC.md](https://github.com/XTUIC/Rust/blob/main/TUIC_SPEC.en.md)
 
 ## Overview
 
